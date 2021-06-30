@@ -35,68 +35,72 @@ import logo from "../../static/img/logo.jpg";
 
 function Header() {
   return (
-    <nav style={{ backgroundColor: "#ffec0f" }}>
-      <HeaderWrapperLine1>
-        <HeaderIcon>
-          <LocationOnIcon className="__Header__Icon" />
-          <StoreFinder>Store Finder</StoreFinder>
-        </HeaderIcon>
-        <HeaderIcon>
-          <HelpOutlineIcon className="__Header__Icon" />
-          <StoreFinder>Help & Support</StoreFinder>
-        </HeaderIcon>
-      </HeaderWrapperLine1>
+    <>
+      <nav style={{ backgroundColor: "#ffec0f" }}>
+        <HeaderWrapperLine1>
+          <HeaderIcon>
+            <LocationOnIcon className="__Header__Icon" />
+            <StoreFinder>Store Finder</StoreFinder>
+          </HeaderIcon>
+          <HeaderIcon>
+            <HelpOutlineIcon className="__Header__Icon" />
+            <StoreFinder>Help & Support</StoreFinder>
+          </HeaderIcon>
+        </HeaderWrapperLine1>
 
-      <HeaderWrapperLine2>
-        <Link to="/">
-          <Img src={logo} alt="" />
-        </Link>
-        <NavSearchWrapper>
-          <SearchIcon className="__Header__SearchIcon" />
-          <NavSearch />
-        </NavSearchWrapper>
-        <IconsWrapper>
-          <Link to="/wishList" className="__Header__Link">
-            <SubIconWrapper>
-              <FavoriteBorderIcon /> Wish List
-            </SubIconWrapper>
+        <HeaderWrapperLine2>
+          <Link to="/">
+            <Img src={logo} alt="" />
           </Link>
-          <Link to="/login" className="__Header__Link">
-            <SubIconWrapper>
-              <AccountCircleIcon /> My Account
-            </SubIconWrapper>
-          </Link>
-          <Link to="/myCart" className="__Header__Link">
-            <SubIconWrapper>
-              <ShoppingCartIcon /> My Cart
-            </SubIconWrapper>
-          </Link>
-        </IconsWrapper>
-      </HeaderWrapperLine2>
+          <NavSearchWrapper>
+            <SearchIcon className="__Header__SearchIcon" />
+            <NavSearch />
+          </NavSearchWrapper>
+          <IconsWrapper>
+            <Link to="/wishList" className="__Header__Link">
+              <SubIconWrapper>
+                <FavoriteBorderIcon /> Wish List
+              </SubIconWrapper>
+            </Link>
+            <Link to="/login" className="__Header__Link">
+              <SubIconWrapper>
+                <AccountCircleIcon /> My Account
+              </SubIconWrapper>
+            </Link>
+            <Link to="/myCart" className="__Header__Link">
+              <SubIconWrapper>
+                <ShoppingCartIcon /> My Cart
+              </SubIconWrapper>
+            </Link>
+          </IconsWrapper>
+        </HeaderWrapperLine2>
+      </nav>
 
-      <HeaderWrapperLine3>
-        <Line3Wrapper>
-          <HomeIcon className="__Header__Line3Icon" />
-          <Line3Text className="__Header__Line3Text">Products</Line3Text>
-        </Line3Wrapper>
-        <Line3Wrapper>
-          <LabelIcon className="__Header__Line3Icon" />
-          <Line3Text className="__Header__Line3Text">Brands</Line3Text>
-        </Line3Wrapper>
-        <Line3Wrapper>
-          <NotificationsNoneIcon className="__Header__Line3Icon" />
-          <Line3Text className="__Header__Line3Text">Deals & Sales</Line3Text>
-        </Line3Wrapper>
-        <Line3Wrapper>
-          <BuildIcon className="__Header__Line3Icon" />
-          <Line3Text className="__Header__Line3Text">Services</Line3Text>
-        </Line3Wrapper>
-        <Line3Wrapper>
-          <CardGiftcardIcon className="__Header__Line3Icon" />
-          <Line3Text className="__Header__Line3Text">Gift Cards</Line3Text>
-        </Line3Wrapper>
-      </HeaderWrapperLine3>
-    </nav>
+      <nav style={{ backgroundColor: "#000" }}>
+        <HeaderWrapperLine3>
+          <Line3Wrapper>
+            <HomeIcon className="__Header__Line3Icon" />
+            <Line3Text className="__Header__Line3Text">Products</Line3Text>
+          </Line3Wrapper>
+          <Line3Wrapper>
+            <LabelIcon className="__Header__Line3Icon" />
+            <Line3Text className="__Header__Line3Text">Brands</Line3Text>
+          </Line3Wrapper>
+          <Line3Wrapper>
+            <NotificationsNoneIcon className="__Header__Line3Icon" />
+            <Line3Text className="__Header__Line3Text">Deals & Sales</Line3Text>
+          </Line3Wrapper>
+          <Line3Wrapper>
+            <BuildIcon className="__Header__Line3Icon" />
+            <Line3Text className="__Header__Line3Text">Services</Line3Text>
+          </Line3Wrapper>
+          <Line3Wrapper>
+            <CardGiftcardIcon className="__Header__Line3Icon" />
+            <Line3Text className="__Header__Line3Text">Gift Cards</Line3Text>
+          </Line3Wrapper>
+        </HeaderWrapperLine3>
+      </nav>
+    </>
   );
 }
 
