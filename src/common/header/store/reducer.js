@@ -1,13 +1,17 @@
-import actionTypes from "./actionTypes";
+import * as actionTypes from "./actionTypes";
 import { fromJS } from "immutable";
 
 const defaultState = fromJS({
-  totalItem: 0,
-  loggedIn: false,
+  menuOpen: false,
+  totalItems: 0,
 });
 
 export default (state = defaultState, action) => {
   switch (action.type) {
+    case actionTypes.OPEN_MENU:
+      return state.set("menuOpen", true);
+    case actionTypes.CLOSE_MENU:
+      return state.set("menuOpen", false);
     default:
       return state;
   }

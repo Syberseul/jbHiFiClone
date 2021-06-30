@@ -2,18 +2,22 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-// import { actionCreator } from "./store";
+import { actionCreators } from "./store";
 
 import {
   HeaderWrapperLine1,
-  HeaderIcon,
+  HeaderWrapper,
   StoreFinder,
+  MobileWrapper,
+  MobileText,
   HeaderWrapperLine2,
   NavSearchWrapper,
   Img,
+  PCImg,
   NavSearch,
   IconsWrapper,
   SubIconWrapper,
+  SubIconText,
   HeaderWrapperLine3,
   Line3Wrapper,
   Line3Text,
@@ -31,21 +35,42 @@ import NotificationsNoneIcon from "@material-ui/icons/NotificationsNone";
 import BuildIcon from "@material-ui/icons/Build";
 import CardGiftcardIcon from "@material-ui/icons/CardGiftcard";
 
+import MenuIcon from "@material-ui/icons/Menu";
+
 import logo from "../../static/img/logo.jpg";
 
-function Header() {
+function Header(props) {
+  const { menuOpen, toggleMenuClose, toggleMenuOpen } = props;
   return (
     <>
       <nav style={{ backgroundColor: "#ffec0f" }}>
         <HeaderWrapperLine1>
-          <HeaderIcon>
+          <MobileWrapper
+            className="__Header__MenuIcon"
+            onClick={menuOpen === true ? toggleMenuClose : toggleMenuOpen}
+          >
+            <MenuIcon />
+            <MobileText>Menu</MobileText>
+          </MobileWrapper>
+          <HeaderWrapper>
             <LocationOnIcon className="__Header__Icon" />
             <StoreFinder>Store Finder</StoreFinder>
-          </HeaderIcon>
-          <HeaderIcon>
+          </HeaderWrapper>
+          <Link to="/">
+            <PCImg src={logo} alt="" />
+          </Link>
+          <HeaderWrapper>
             <HelpOutlineIcon className="__Header__Icon" />
             <StoreFinder>Help & Support</StoreFinder>
-          </HeaderIcon>
+            <MobileWrapper>
+              <AccountCircleIcon />
+              <MobileText>Account</MobileText>
+            </MobileWrapper>
+            <MobileWrapper>
+              <ShoppingCartIcon />
+              <MobileText>Cart</MobileText>
+            </MobileWrapper>
+          </HeaderWrapper>
         </HeaderWrapperLine1>
 
         <HeaderWrapperLine2>
@@ -59,17 +84,20 @@ function Header() {
           <IconsWrapper>
             <Link to="/wishList" className="__Header__Link">
               <SubIconWrapper>
-                <FavoriteBorderIcon /> Wish List
+                <FavoriteBorderIcon />
+                <SubIconText>Wish List</SubIconText>
               </SubIconWrapper>
             </Link>
             <Link to="/login" className="__Header__Link">
               <SubIconWrapper>
-                <AccountCircleIcon /> My Account
+                <AccountCircleIcon />
+                <SubIconText>My Account</SubIconText>
               </SubIconWrapper>
             </Link>
             <Link to="/myCart" className="__Header__Link">
               <SubIconWrapper>
-                <ShoppingCartIcon /> My Cart
+                <ShoppingCartIcon />
+                <SubIconText>My Cart</SubIconText>
               </SubIconWrapper>
             </Link>
           </IconsWrapper>
@@ -105,12 +133,17 @@ function Header() {
 }
 
 const mapState = (state) => ({
-  totalItem: state.getIn(["header", "totalItem"]),
-  loggedIn: state.getIn(["header", "loggedIn"]),
+  menuOpen: state.getIn(["header", "menuOpen"]),
+  totalItems: state.getIn(["header", "totalItems"]),
 });
 
 const mapDispatch = (dispatch) => ({
-  //...
+  toggleMenuOpen() {
+    dispatch(actionCreators.toggleMenuOpen());
+  },
+  toggleMenuClose() {
+    dispatch(actionCreators.toggleMenuClose());
+  },
 });
 
 export default connect(mapState, mapDispatch)(Header);

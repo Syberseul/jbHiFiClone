@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const HeaderWrapperLine1 = styled.div`
-  height: 30px;
   width: 100%;
   max-width: 1100px;
   margin: auto;
@@ -12,19 +11,44 @@ export const HeaderWrapperLine1 = styled.div`
   justify-content: space-between;
 `;
 
-export const HeaderIcon = styled.div`
+export const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   margin: 5px 20px;
   font-size: 15px;
   .__Header__Icon {
     font-size: 20px;
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
   }
 `;
 
 export const StoreFinder = styled.p`
   text-align: center;
   cursor: pointer;
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const MobileWrapper = styled.div`
+  margin: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  @media only screen and (min-width: 768px) {
+    display: none;
+  }
+`;
+
+export const MobileText = styled.p`
+  text-align: center;
+  font-size: 10px;
+  @media only screen and (min-width: 768px) {
+    display: none;
+  }
 `;
 
 export const HeaderWrapperLine2 = styled.div`
@@ -46,6 +70,9 @@ export const NavSearchWrapper = styled.div`
   .__Header__SearchIcon {
     position: absolute;
     left: 10px;
+    @media only screen and (max-width: 768px) {
+      left: 30px;
+    }
   }
 `;
 
@@ -55,6 +82,20 @@ export const Img = styled.img`
   margin-left: 20px;
   margin-right: 40px;
   cursor: pointer;
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const PCImg = styled.img`
+  width: 200px;
+  height: 40px;
+  margin-left: 20px;
+  margin-right: 40px;
+  cursor: pointer;
+  @media only screen and (min-width: 768px) {
+    display: none;
+  }
 `;
 
 export const NavSearch = styled.input.attrs({
@@ -65,6 +106,11 @@ export const NavSearch = styled.input.attrs({
   width: 100%;
   padding: 5px;
   padding-left: 35px;
+  border: none;
+  border-radius: 5px;
+  @media only screen and (max-width: 768px) {
+    margin: 0 20px;
+  }
 `;
 
 export const IconsWrapper = styled.div`
@@ -79,15 +125,23 @@ export const IconsWrapper = styled.div`
     text-decoration: none;
     color: #000;
   }
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const SubIconWrapper = styled.div`
   display: flex;
   align-items: center;
+  flex-direction: column;
   cursor: pointer;
   &:hover {
     color: #555;
   }
+`;
+
+export const SubIconText = styled.p`
+  cursor: pointer;
 `;
 
 export const HeaderWrapperLine3 = styled.div`
@@ -100,6 +154,9 @@ export const HeaderWrapperLine3 = styled.div`
   display: flex;
   align-items: center;
   justify-content: start;
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const Line3Wrapper = styled.div`
