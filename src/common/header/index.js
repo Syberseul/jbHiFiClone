@@ -6,10 +6,17 @@ import { Link } from "react-router-dom";
 
 import {
   HeaderWrapperLine1,
+  HeaderIcon,
   StoreFinder,
   HeaderWrapperLine2,
+  NavSearchWrapper,
+  Img,
   NavSearch,
   IconsWrapper,
+  SubIconWrapper,
+  HeaderWrapperLine3,
+  Line3Wrapper,
+  Line3Text,
 } from "./style";
 
 import LocationOnIcon from "@material-ui/icons/LocationOn";
@@ -18,47 +25,77 @@ import SearchIcon from "@material-ui/icons/Search";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import HomeIcon from "@material-ui/icons/Home";
+import LabelIcon from "@material-ui/icons/Label";
+import NotificationsNoneIcon from "@material-ui/icons/NotificationsNone";
+import BuildIcon from "@material-ui/icons/Build";
+import CardGiftcardIcon from "@material-ui/icons/CardGiftcard";
 
 import logo from "../../static/img/logo.jpg";
 
 function Header() {
   return (
-    <nav>
+    <nav style={{ backgroundColor: "#ffec0f" }}>
       <HeaderWrapperLine1>
-        <div className="__Header__Line1">
+        <HeaderIcon>
           <LocationOnIcon className="__Header__Icon" />
           <StoreFinder>Store Finder</StoreFinder>
-        </div>
-        <div className="__Header__Line1">
+        </HeaderIcon>
+        <HeaderIcon>
           <HelpOutlineIcon className="__Header__Icon" />
           <StoreFinder>Help & Support</StoreFinder>
-        </div>
+        </HeaderIcon>
       </HeaderWrapperLine1>
 
       <HeaderWrapperLine2>
         <Link to="/">
-          <img src={logo} alt="" className="__Header__Logo" />
+          <Img src={logo} alt="" />
         </Link>
-        <NavSearch />
-        <SearchIcon className="__Header__SearchIcon" />
+        <NavSearchWrapper>
+          <SearchIcon className="__Header__SearchIcon" />
+          <NavSearch />
+        </NavSearchWrapper>
         <IconsWrapper>
           <Link to="/wishList" className="__Header__Link">
-            <div>
+            <SubIconWrapper>
               <FavoriteBorderIcon /> Wish List
-            </div>
+            </SubIconWrapper>
           </Link>
           <Link to="/login" className="__Header__Link">
-            <div>
+            <SubIconWrapper>
               <AccountCircleIcon /> My Account
-            </div>
+            </SubIconWrapper>
           </Link>
           <Link to="/myCart" className="__Header__Link">
-            <div>
+            <SubIconWrapper>
               <ShoppingCartIcon /> My Cart
-            </div>
+            </SubIconWrapper>
           </Link>
         </IconsWrapper>
       </HeaderWrapperLine2>
+
+      <HeaderWrapperLine3>
+        <Line3Wrapper>
+          <HomeIcon className="__Header__Line3Icon" />
+          <Line3Text className="__Header__Line3Text">Products</Line3Text>
+        </Line3Wrapper>
+        <Line3Wrapper>
+          <LabelIcon className="__Header__Line3Icon" />
+          <Line3Text className="__Header__Line3Text">Brands</Line3Text>
+        </Line3Wrapper>
+        <Line3Wrapper>
+          <NotificationsNoneIcon className="__Header__Line3Icon" />
+          <Line3Text className="__Header__Line3Text">Deals & Sales</Line3Text>
+        </Line3Wrapper>
+        <Line3Wrapper>
+          <BuildIcon className="__Header__Line3Icon" />
+          <Line3Text className="__Header__Line3Text">Services</Line3Text>
+        </Line3Wrapper>
+        <Line3Wrapper>
+          <CardGiftcardIcon className="__Header__Line3Icon" />
+          <Line3Text className="__Header__Line3Text">Gift Cards</Line3Text>
+        </Line3Wrapper>
+      </HeaderWrapperLine3>
     </nav>
   );
 }
