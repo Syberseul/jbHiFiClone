@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import store from "./store";
 
 import Header from "./common/header";
+import Home from "./Components/Home";
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Route path="/" exact>
-          Home Page
+          <Home />
         </Route>
         <Route path="/wishList" exact>
           My wish list
