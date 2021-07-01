@@ -4,24 +4,58 @@ import { fromJS } from "immutable";
 const defaultState = fromJS({
   items: [],
   itemsInCart: [],
-  itemsAmount: [],
 });
 
 const addItemToCart = (state, action) => {
-  const { itemsAmount } = state.toJS();
-  itemsAmount[action.index] = itemsAmount[action.index] + 1;
-  return state.merge({
-    itemsInCart: fromJS([...state.toJS().itemsInCart, action.item]),
-    itemsAmount: fromJS(itemsAmount),
-  });
+  action.item.amount++;
+
+  // if (
+  //   state.toJS().itemsInCart.find((obj) => obj.id === action.index) ===
+  //   undefined
+  // ) {
+  //   return state.merge({
+  //     itemsInCart: fromJS([...state.toJS().itemsInCart, action.item]),
+  //   });
+  // } else {
+  //   // console.log(
+  //   //   state.toJS().itemsInCart.find((obj) => obj.id === action.index).amount
+  //   // );
+  //   // console.log(`this is ${action.index - 1}`);
+  //   // delete state.toJS().itemsInCart[action.index - 1];
+  //   // console.log("a");
+  //   // console.log(state.getIn(["itemsInCart"]));
+  //   console.log(state.getIn(["itemsInCart", 0]));
+  //   return state;
+  // }
+  if (
+    state.toJS().itemsInCart.find((obj) => obj.id === action.index) !==
+    undefined
+  ) {
+    console.log("111");
+    return state.merge({
+      itemsInCart: fromJS(
+        state.setIn(
+          [
+            state.toJS().itemsInCart.find((obj) => obj.id === action.index) !==
+              undefined,
+          ],
+          state.toJS().itemsInCart[action.index - 1].amount + 1
+        )
+      ),
+    });
+  } else {
+    console.log("222");
+    return state.merge({
+      itemsInCart: fromJS([...state.toJS().itemsInCart, action.item]),
+    });
+  }
 };
 
 const updateHomeData = (state, action) => {
-  const num = action.data.length;
-  return state.merge({
-    items: action.data,
-    itemsAmount: Array(num).fill(0),
-  });
+  for (let i = 0; i < action.data.length; i++) {
+    action.data[i].amount = 0;
+  }
+  return state.set("items", action.data);
 };
 
 export default (state = defaultState, action) => {

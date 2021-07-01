@@ -23,5 +23,5 @@ export const getHomeInfo = () => {
 export const addItemToCart = (item, index) => ({
   type: actionTypes.ADD_ITEM_TO_CART,
   item,
-  index: index - 1,
+  index,
 });
