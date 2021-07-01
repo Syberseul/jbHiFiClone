@@ -9,6 +9,7 @@ export const ItemWrapper = styled.div`
   border: 1px solid #bbb;
   margin: 20px auto;
   height: 220px;
+  cursor: pointer;
   @media only screen and (max-width: 630px) {
     width: 100%;
   }
@@ -44,9 +45,12 @@ export const UpRightWrapper = styled.div`
 `;
 
 export const Category = styled.p`
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
   margin-bottom: 20px;
+  @media only screen and (max-width: 630px) {
+    font-size: 20px;
+  }
 `;
 
 export const Title = styled.p`
@@ -88,7 +92,6 @@ export const LowerWrapper = styled.div`
     background-color: #fff;
     &:hover {
       color: #cd0000;
-      cursor: pointer;
     }
   }
   .__Home__AddToCart {
@@ -100,7 +103,6 @@ export const LowerWrapper = styled.div`
     padding: 10px;
     background-color: #000;
     color: #fff;
-    cursor: pointer;
     &:hover {
       background-color: #333;
     }
@@ -129,4 +131,40 @@ export const Price = styled.p`
   padding: 8px;
   background-color: #ffec0f;
   box-shadow: 2px 2px rgba(0, 0, 0, 1);
+`;
+
+export const BannerWrapper = styled.div`
+  width: 100%;
+  min-height: 200px;
+`;
+
+export const BannerImgWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  cursor: pointer;
+  .img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
+
+export const SubBannerWrapper = styled.div`
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media only screen and (max-width: 1000px) {
+    margin-top: 0;
+    .__SubBanner__div {
+      display: none;
+    }
+    .__SubBanner__div1 {
+      width: 100%;
+    }
+    .__SubBanner__img {
+      width: 100%;
+    }
+  }
 `;

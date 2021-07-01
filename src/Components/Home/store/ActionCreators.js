@@ -19,3 +19,8 @@ export const getHomeInfo = () => {
       });
   };
 };
+
+export const addItemToCart = (item) => ({
+  type: actionTypes.ADD_ITEM_TO_CART,
+  item,
+});

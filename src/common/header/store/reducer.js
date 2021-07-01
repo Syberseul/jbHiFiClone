@@ -3,7 +3,6 @@ import { fromJS } from "immutable";
 
 const defaultState = fromJS({
   menuOpen: false,
-  totalItems: 0,
 });
 
 export default (state = defaultState, action) => {

@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { actionCreators } from "./store";
 
 import Item from "./components/item";
+import Banner from "./components/banner";
+import SubBanner from "./components/subBanner";
 
 import { RecommendWrapper, RecommendTitle, ItemContainer } from "./style";
 
@@ -15,14 +17,18 @@ function Home(props) {
 
   if (menuOpen === false) {
     return (
-      <RecommendWrapper>
-        <RecommendTitle>Recommended for you</RecommendTitle>
-        <ItemContainer>
-          {items.slice(0, 4).map((item, index) => (
-            <Item key={index} item={item} />
-          ))}
-        </ItemContainer>
-      </RecommendWrapper>
+      <div>
+        <Banner />
+        <SubBanner />
+        <RecommendWrapper>
+          <RecommendTitle>Recommended for you</RecommendTitle>
+          <ItemContainer>
+            {items.map((item, index) => (
+              <Item key={index} item={item} />
+            ))}
+          </ItemContainer>
+        </RecommendWrapper>
+      </div>
     );
   } else {
     return <div>This will show when menu is open</div>;

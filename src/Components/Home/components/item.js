@@ -1,3 +1,8 @@
+import React from "react";
+import { connect } from "react-redux";
+
+import { actionCreators } from "../store";
+
 import {
   ItemWrapper,
   UpWrapper,
@@ -32,10 +37,17 @@ function Item(props) {
         <AddShoppingCartIcon
           className="
         __Home__AddToCart"
+          onClick={() => props.addItemToCart(props.item)}
         />
       </LowerWrapper>
     </ItemWrapper>
   );
 }
 
-export default Item;
+const mapDispatch = (dispatch) => ({
+  addItemToCart(item) {
+    dispatch(actionCreators.addItemToCart(item));
+  },
+});
+
+export default connect(null, mapDispatch)(Item);

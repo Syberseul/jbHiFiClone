@@ -34,13 +34,12 @@ import LabelIcon from "@material-ui/icons/Label";
 import NotificationsNoneIcon from "@material-ui/icons/NotificationsNone";
 import BuildIcon from "@material-ui/icons/Build";
 import CardGiftcardIcon from "@material-ui/icons/CardGiftcard";
-
 import MenuIcon from "@material-ui/icons/Menu";
 
 import logo from "../../static/img/logo.jpg";
 
 function Header(props) {
-  const { menuOpen, toggleMenuClose, toggleMenuOpen } = props;
+  const { menuOpen, itemsInCart, toggleMenuClose, toggleMenuOpen } = props;
   return (
     <>
       <nav style={{ backgroundColor: "#ffec0f" }}>
@@ -97,6 +96,13 @@ function Header(props) {
             <Link to="/myCart" className="__Header__Link">
               <SubIconWrapper>
                 <ShoppingCartIcon />
+                {itemsInCart.toJS().length > 0 ? (
+                  <p className="__Header__Quantity">
+                    {itemsInCart.toJS().length}
+                  </p>
+                ) : (
+                  <></>
+                )}
                 <SubIconText>My Cart</SubIconText>
               </SubIconWrapper>
             </Link>
@@ -134,7 +140,7 @@ function Header(props) {
 
 const mapState = (state) => ({
   menuOpen: state.getIn(["header", "menuOpen"]),
-  totalItems: state.getIn(["header", "totalItems"]),
+  itemsInCart: state.getIn(["home", "itemsInCart"]),
 });
 
 const mapDispatch = (dispatch) => ({

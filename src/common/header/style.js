@@ -133,6 +133,16 @@ export const SubIconWrapper = styled.div`
   flex-direction: column;
   margin-left: 20px;
   cursor: pointer;
+  position: relative;
+  .__Header__Quantity {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    color: #fff;
+    background-color: #ff0000;
+    padding: 2px 4px;
+    border-radius: 50%;
+  }
   &:hover {
     color: #555;
   }
