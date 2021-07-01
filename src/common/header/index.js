@@ -13,7 +13,7 @@ import {
   HeaderWrapperLine2,
   NavSearchWrapper,
   Img,
-  PCImg,
+  PhoneImg,
   NavSearch,
   IconsWrapper,
   SubIconWrapper,
@@ -57,7 +57,7 @@ function Header(props) {
             <StoreFinder>Store Finder</StoreFinder>
           </HeaderWrapper>
           <Link to="/">
-            <PCImg src={logo} alt="" />
+            <PhoneImg src={logo} alt="" />
           </Link>
           <HeaderWrapper>
             <HelpOutlineIcon className="__Header__Icon" />

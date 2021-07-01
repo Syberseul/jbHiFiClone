@@ -14,11 +14,11 @@ export const HeaderWrapperLine1 = styled.div`
 export const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin: 5px 20px;
+  margin: 5px;
   font-size: 15px;
   .__Header__Icon {
     font-size: 20px;
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 850px) {
       display: none;
     }
   }
@@ -27,7 +27,7 @@ export const HeaderWrapper = styled.div`
 export const StoreFinder = styled.p`
   text-align: center;
   cursor: pointer;
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 850px) {
     display: none;
   }
 `;
@@ -38,7 +38,7 @@ export const MobileWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 850px) {
     display: none;
   }
 `;
@@ -46,7 +46,7 @@ export const MobileWrapper = styled.div`
 export const MobileText = styled.p`
   text-align: center;
   font-size: 10px;
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 850px) {
     display: none;
   }
 `;
@@ -59,6 +59,7 @@ export const HeaderWrapperLine2 = styled.div`
   background-color: #ffec0f;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 `;
 
 export const NavSearchWrapper = styled.div`
@@ -67,33 +68,31 @@ export const NavSearchWrapper = styled.div`
   align-items: center;
   flex-direction: row;
   width: 100%;
+  margin: auto;
+  padding-left: 20px;
   .__Header__SearchIcon {
     position: absolute;
-    left: 10px;
-    @media only screen and (max-width: 768px) {
-      left: 30px;
-    }
+    left: 30px;
   }
 `;
 
 export const Img = styled.img`
   width: 200px;
   height: 40px;
-  margin-left: 20px;
   margin-right: 40px;
   cursor: pointer;
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 850px) {
     display: none;
   }
 `;
 
-export const PCImg = styled.img`
+export const PhoneImg = styled.img`
   width: 200px;
   height: 40px;
-  margin-left: 20px;
-  margin-right: 40px;
+  margin: auto;
+  padding-left: 20px;
   cursor: pointer;
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 850px) {
     display: none;
   }
 `;
@@ -108,24 +107,22 @@ export const NavSearch = styled.input.attrs({
   padding-left: 35px;
   border: none;
   border-radius: 5px;
-  @media only screen and (max-width: 768px) {
-    margin: 0 20px;
+  @media only screen and (max-width: 850px) {
+    margin-right: 20px;
   }
 `;
 
 export const IconsWrapper = styled.div`
-  padding-right: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 100%;
   padding-left: 20px;
-  div {
-  }
+  padding-right: 5px;
   .__Header__Link {
     text-decoration: none;
     color: #000;
   }
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 850px) {
     display: none;
   }
 `;
@@ -134,6 +131,7 @@ export const SubIconWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-left: 20px;
   cursor: pointer;
   &:hover {
     color: #555;
@@ -154,7 +152,7 @@ export const HeaderWrapperLine3 = styled.div`
   display: flex;
   align-items: center;
   justify-content: start;
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 850px) {
     display: none;
   }
 `;
