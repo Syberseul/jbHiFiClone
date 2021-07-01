@@ -4,6 +4,7 @@ import store from "./store";
 
 import Header from "./common/header";
 import Home from "./Components/Home";
+import Cart from "./Components/Cart";
 
 function App() {
   return (
@@ -20,7 +21,9 @@ function App() {
           login
         </Route>
         <Route path="/myAccount">my account</Route>
-        <Route path="/myCart">my cart</Route>
+        <Route path="/myCart">
+          <Cart />
+        </Route>
       </BrowserRouter>
     </Provider>
   );

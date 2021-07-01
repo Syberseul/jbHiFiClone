@@ -37,7 +37,7 @@ function Item(props) {
         <AddShoppingCartIcon
           className="
         __Home__AddToCart"
-          onClick={() => props.addItemToCart(props.item)}
+          onClick={() => props.addItemToCart(props.item, props.item.id)}
         />
       </LowerWrapper>
     </ItemWrapper>
@@ -45,8 +45,8 @@ function Item(props) {
 }
 
 const mapDispatch = (dispatch) => ({
-  addItemToCart(item) {
-    dispatch(actionCreators.addItemToCart(item));
+  addItemToCart(item, index) {
+    dispatch(actionCreators.addItemToCart(item, index));
   },
 });
 
