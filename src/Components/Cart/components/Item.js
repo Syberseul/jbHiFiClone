@@ -14,43 +14,57 @@ import {
 
 function Item(props) {
   const { title, price, image, description, amount } = props.item.toJS();
-  return (
-    <CartItemWrapper>
-      <Img src={image} alt="" />
-      <MiddleSection>
-        <Descriptions>{title}</Descriptions>
-        <Descriptions>{description}</Descriptions>
-      </MiddleSection>
-      <LeftSection>
-        <p className="__Item__RemoveButton">Remove</p>
-        <QuantityControl>
+
+  if (amount > 0) {
+    return (
+      <CartItemWrapper>
+        <Img src={image} alt="" />
+        <MiddleSection>
+          <Descriptions>{title}</Descriptions>
+          <Descriptions>{description}</Descriptions>
+        </MiddleSection>
+        <LeftSection>
           <p
-            className="__Item__Button"
-            onClick={() => props.decreamentItem(props.item.toJS())}
+            className="__Item__RemoveButton"
+            onClick={() => props.deleteItem(props.item.toJS())}
           >
-            -
+            Remove
           </p>
-          <p className="__Item__Amount">{amount}</p>
-          <p
-            className="__Item__Button"
-            onClick={() => props.increamentItem(props.item.toJS())}
-          >
-            +
-          </p>
-        </QuantityControl>
-        <p className="__Item__PriceTag">${price}</p>
-      </LeftSection>
-    </CartItemWrapper>
-  );
+          <QuantityControl>
+            <p
+              className="__Item__Button"
+              onClick={() => props.decreamentItem(props.item.toJS())}
+            >
+              -
+            </p>
+            <p className="__Item__Amount">{amount}</p>
+            <p
+              className="__Item__Button"
+              onClick={() => props.increamentItem(props.item.toJS())}
+            >
+              +
+            </p>
+          </QuantityControl>
+          <p className="__Item__PriceTag">${price}</p>
+        </LeftSection>
+      </CartItemWrapper>
+    );
+  } else {
+    return <></>;
+  }
 }
 
 const mapDispatch = (dispatch) => ({
-  // ...
   decreamentItem(item) {
     dispatch(actionCreators.decreamentItem(item));
   },
+
   increamentItem(item) {
-    console.log(item);
+    dispatch(actionCreators.increamentItem(item));
+  },
+
+  deleteItem(item) {
+    dispatch(actionCreators.deleteItem(item));
   },
 });
 

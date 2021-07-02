@@ -8,10 +8,10 @@ import Summary from "./components/Summary";
 import { WrapperWithContent } from "./style";
 
 function Cart(props) {
-  const { items } = props;
+  const { items, totalAmount } = props;
   return (
     <WrapperWithContent>
-      {items.toJS().length > 0 ? (
+      {totalAmount > 0 ? (
         <div>
           <Summary />
           {items.map((item, index) => {
@@ -29,6 +29,7 @@ function Cart(props) {
 
 const mapState = (state) => ({
   items: state.getIn(["home", "itemsInCart"]),
+  totalAmount: state.getIn(["home", "totalAmount"]),
 });
 
 const mapDispatch = (dispatch) => ({

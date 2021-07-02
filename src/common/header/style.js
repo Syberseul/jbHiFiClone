@@ -38,6 +38,16 @@ export const MobileWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   cursor: pointer;
+  position: relative;
+  .__Header__Quantity {
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    color: #fff;
+    background-color: #ff0000;
+    padding: 2px 4px;
+    border-radius: 50%;
+  }
   @media only screen and (min-width: 850px) {
     display: none;
   }

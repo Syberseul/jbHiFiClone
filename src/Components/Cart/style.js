@@ -73,6 +73,12 @@ export const LeftSection = styled.div`
   .__Item__PriceTag {
     font-size: 1.5rem;
   }
+  @media only screen and (max-width: 768px) {
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
 `;
 
 export const QuantityControl = styled.div`
@@ -94,6 +100,9 @@ export const QuantityControl = styled.div`
   }
   &:hover {
     border: 1px solid #666;
+  }
+  @media only screen and (max-width: 768px) {
+    margin-top: 0;
   }
 `;
 
@@ -167,6 +176,11 @@ export const SummaryLastLine = styled.div`
   .__Summary__Text {
     color: #aaa;
   }
+  @media only screen and (max-width: 768px) {
+    .__Summary__Text {
+      display: none;
+    }
+  }
 `;
 
 export const WrapperInLastLine = styled.div`
@@ -174,5 +188,10 @@ export const WrapperInLastLine = styled.div`
   display: flex;
   .__Summary__Text {
     text-align: end;
+  }
+  @media only screen and (max-width: 768px) {
+    .__Summary__Text {
+      display: none;
+    }
   }
 `;

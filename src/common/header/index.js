@@ -68,6 +68,11 @@ function Header(props) {
             </MobileWrapper>
             <MobileWrapper>
               <ShoppingCartIcon />
+              {totalAmount > 0 ? (
+                <p className="__Header__Quantity">{totalAmount}</p>
+              ) : (
+                <></>
+              )}
               <MobileText>Cart</MobileText>
             </MobileWrapper>
           </HeaderWrapper>
