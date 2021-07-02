@@ -45,8 +45,8 @@ function Item(props) {
 }
 
 const mapDispatch = (dispatch) => ({
-  addItemToCart(item, index) {
-    dispatch(actionCreators.addItemToCart(item, index));
+  addItemToCart(item) {
+    dispatch(actionCreators.addItemToCart(item));
   },
 });
 

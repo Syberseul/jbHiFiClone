@@ -2,15 +2,28 @@ import React from "react";
 import { connect } from "react-redux";
 
 import Item from "./components/Item";
+import EmptyCart from "./components/EmptyCart";
+import Summary from "./components/Summary";
+
+import { WrapperWithContent } from "./style";
 
 function Cart(props) {
   const { items } = props;
   return (
-    <div>
-      {items.map((item, index) => {
-        return <Item key={index} item={item} />;
-      })}
-    </div>
+    <WrapperWithContent>
+      {items.toJS().length > 0 ? (
+        <div>
+          <Summary />
+          {items.map((item, index) => {
+            return <Item key={index} item={item} />;
+          })}
+        </div>
+      ) : (
+        <div>
+          <EmptyCart />
+        </div>
+      )}
+    </WrapperWithContent>
   );
 }
 
