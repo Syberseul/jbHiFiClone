@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 
 import { actionCreators } from "../store";
@@ -26,9 +26,9 @@ function Item(props) {
   const [color, setColor] = useState("black");
   const [itemInWishList, setItemInWishList] = useState(false);
 
-  const handleClick = () => {
-    const foundItem = wishList.find((obj) => obj.title === title);
+  const foundItem = wishList.find((obj) => obj.title === title);
 
+  const handleClick = () => {
     if (foundItem === undefined) {
       setColor("red");
       setItemInWishList(true);
@@ -37,6 +37,14 @@ function Item(props) {
       setItemInWishList(false);
     }
   };
+
+  const updateItemColor = () => {
+    foundItem === undefined ? setColor("black") : setColor("red");
+  };
+
+  useEffect(() => {
+    updateItemColor();
+  }, [color]);
 
   return (
     <ItemWrapper>

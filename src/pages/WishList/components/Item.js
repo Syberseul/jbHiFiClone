@@ -1,3 +1,5 @@
+import { connect } from "react-redux";
+
 import {
   ItemWrapper,
   UpWrapper,
@@ -46,4 +48,12 @@ function Item(props) {
   );
 }
 
-export default Item;
+const mapState = (state) => ({
+  // ...
+});
+
+const mapDispatch = (dispatch) => ({
+  // ...
+});
+
+export default connect(mapState, mapDispatch)(Item);
