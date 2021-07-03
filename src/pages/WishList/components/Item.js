@@ -1,8 +1,3 @@
-import React from "react";
-import { connect } from "react-redux";
-
-import { actionCreators } from "../store";
-
 import {
   ItemWrapper,
   UpWrapper,
@@ -12,13 +7,14 @@ import {
   Title,
   LowerWrapper,
   Price,
-} from "./style";
+} from "../../Home/components/style";
 
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 
 function Item(props) {
-  const { title, price, image, category } = props.item;
+  const { title, price, category, image } = props.item;
+
   return (
     <ItemWrapper>
       <UpWrapper>
@@ -31,23 +27,23 @@ function Item(props) {
       <LowerWrapper>
         <Price> ${price}</Price>
         <div className="__Home__AddToWishListWrapper">
-          <FavoriteBorderIcon className="__Home__AddToWishList" />
+          <FavoriteBorderIcon
+            className="__Home__AddToWishList"
+            // onClick={() => {
+            //   addItemToWishList(props.item);
+            //   handleClick(color);
+            // }}
+          />
           <p className="__Home__ToolTip">Add to Wish List</p>
         </div>
         <AddShoppingCartIcon
           className="
         __Home__AddToCart"
-          onClick={() => props.addItemToCart(props.item, props.item.id)}
+          //   onClick={() => addItemToCart(props.item)}
         />
       </LowerWrapper>
     </ItemWrapper>
   );
 }
 
-const mapDispatch = (dispatch) => ({
-  addItemToCart(item) {
-    dispatch(actionCreators.addItemToCart(item));
-  },
-});
-
-export default connect(null, mapDispatch)(Item);
+export default Item;

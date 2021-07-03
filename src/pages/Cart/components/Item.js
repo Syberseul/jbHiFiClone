@@ -45,7 +45,7 @@ function Item(props) {
               +
             </p>
           </QuantityControl>
-          <p className="__Item__PriceTag">${price}</p>
+          <p className="__Item__PriceTag">${(price * amount).toFixed(2)}</p>
         </LeftSection>
       </CartItemWrapper>
     );

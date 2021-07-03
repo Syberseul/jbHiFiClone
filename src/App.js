@@ -3,8 +3,10 @@ import { BrowserRouter, Route } from "react-router-dom";
 import store from "./store";
 
 import Header from "./common/header";
-import Home from "./Components/Home";
-import Cart from "./Components/Cart";
+import Home from "./pages/Home";
+import Cart from "./pages/Cart";
+import SignIn from "./pages/Account";
+import WishList from "./pages/WishList";
 
 function App() {
   return (
@@ -15,10 +17,10 @@ function App() {
           <Home />
         </Route>
         <Route path="/wishList" exact>
-          My wish list
+          <WishList />
         </Route>
         <Route path="/login" exact>
-          login
+          <SignIn />
         </Route>
         <Route path="/myAccount">my account</Route>
         <Route path="/myCart">

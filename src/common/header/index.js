@@ -144,8 +144,8 @@ function Header(props) {
 
 const mapState = (state) => ({
   menuOpen: state.getIn(["header", "menuOpen"]),
-  itemsInCart: state.getIn(["home", "itemsInCart"]),
-  totalAmount: state.getIn(["home", "totalAmount"]),
+  itemsInCart: state.getIn(["cart", "itemsInCart"]),
+  totalAmount: state.getIn(["cart", "totalAmount"]),
 });
 
 const mapDispatch = (dispatch) => ({

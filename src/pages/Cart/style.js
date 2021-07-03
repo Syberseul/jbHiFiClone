@@ -195,3 +195,94 @@ export const WrapperInLastLine = styled.div`
     }
   }
 `;
+
+export const SubTotalWrapper = styled.div`
+  weight: 100%;
+  display: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const SubTotalFirstLineWrapper = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: end;
+  justify-content: end;
+  .__SubTotal__PriceTag {
+    font-size: 1.75rem;
+    font-weight: bold;
+  }
+  .__SubTotal__Delivery {
+    font-size: 1.25rem;
+    font-weight: 300;
+  }
+  .__SubTotal__GST {
+    font-size: 1.25rem;
+    font-weight: 100;
+    color: #ccc;
+  }
+  div {
+    margin: 40px 0;
+    padding-left: 60px;
+    display: flex;
+    flex-direction: column;
+    p {
+      line-height: 40px;
+      text-align: end;
+    }
+  }
+`;
+
+export const SubTotalSecondLineWrapper = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  @media only screen and (max-width: 640px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+export const RightDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #028702;
+  padding: 10px 14px;
+  box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  .__SubTotal__Icon {
+    color: #fff;
+  }
+  .__SubTotal__Checkout {
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 0.75rem 1rem;
+  }
+  @media only screen and (max-width: 640px) {
+    width: 90%;
+  }
+`;
+
+export const LeftDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  margin-right: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  .__SubTotal__BackToShopping {
+    text-align: center;
+    vertical-align: center;
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+  }
+  @media only screen and (max-width: 640px) {
+    width: 90%;
+    margin-right: 0;
+    margin-top: 30px;
+    padding: 22px 14px;
+  }
+`;

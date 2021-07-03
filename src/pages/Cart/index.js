@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Item from "./components/Item";
 import EmptyCart from "./components/EmptyCart";
 import Summary from "./components/Summary";
+import SubTotal from "./components/SubTotal";
 
 import { WrapperWithContent } from "./style";
 
@@ -17,19 +18,18 @@ function Cart(props) {
           {items.map((item, index) => {
             return <Item key={index} item={item} />;
           })}
+          <SubTotal />
         </div>
       ) : (
-        <div>
-          <EmptyCart />
-        </div>
+        <EmptyCart />
       )}
     </WrapperWithContent>
   );
 }
 
 const mapState = (state) => ({
-  items: state.getIn(["home", "itemsInCart"]),
-  totalAmount: state.getIn(["home", "totalAmount"]),
+  items: state.getIn(["cart", "itemsInCart"]),
+  totalAmount: state.getIn(["cart", "totalAmount"]),
 });
 
 const mapDispatch = (dispatch) => ({
