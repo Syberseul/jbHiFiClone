@@ -29,22 +29,20 @@ function Item(props) {
   const foundItem = wishList.find((obj) => obj.title === title);
 
   const handleClick = () => {
-    if (foundItem === undefined) {
-      setColor("red");
+    if (itemInWishList === false) {
       setItemInWishList(true);
     } else {
-      setColor("black");
       setItemInWishList(false);
     }
   };
 
   const updateItemColor = () => {
-    foundItem === undefined ? setColor("black") : setColor("red");
+    itemInWishList === false ? setColor("black") : setColor("red");
   };
 
   useEffect(() => {
     updateItemColor();
-  }, [color]);
+  }, [itemInWishList]);
 
   return (
     <ItemWrapper>
@@ -62,11 +60,15 @@ function Item(props) {
             className="__Home__AddToWishList"
             style={{ color: color }}
             onClick={() => {
-              addItemToWishList(props.item, itemInWishList);
+              // addItemToWishList(props.item, itemInWishList);
               handleClick();
             }}
           />
-          <p className="__Home__ToolTip">Add to Wish List</p>
+          {itemInWishList ? (
+            <p className="__Home__ToolTip">Remove from Wish List</p>
+          ) : (
+            <p className="__Home__ToolTip">Add to Wish List</p>
+          )}
         </div>
         <AddShoppingCartIcon
           className="
@@ -86,9 +88,9 @@ const mapDispatch = (dispatch) => ({
   addItemToCart(item) {
     dispatch(actionCreators.addItemToCart(item));
   },
-  addItemToWishList(item, itemInWishList) {
-    dispatch(wishListActionCreators.addItemToWishList(item, itemInWishList));
-  },
+  // addItemToWishList(item, itemInWishList) {
+  //   dispatch(wishListActionCreators.addItemToWishList(item, itemInWishList));
+  // },
 });
 
 export default connect(mapState, mapDispatch)(Item);

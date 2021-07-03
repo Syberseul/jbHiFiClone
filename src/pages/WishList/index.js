@@ -8,9 +8,9 @@ function WishList(props) {
 
   return (
     <div>
-      {wishList.map((item, index) => (
-        <Item key={index} item={item} />
-      ))}
+      {wishList.map((item, index) => {
+        return <Item key={index} item={item} />;
+      })}
     </div>
   );
 }
@@ -19,8 +19,4 @@ const mapState = (state) => ({
   wishList: state.getIn(["wishList", "itemsInWishList"]),
 });
 
-const mapDispatch = (dispatch) => ({
-  // ...
-});
-
-export default connect(mapState, mapDispatch)(WishList);
+export default connect(mapState, null)(WishList);

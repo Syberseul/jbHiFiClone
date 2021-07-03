@@ -114,9 +114,11 @@ export const LowerWrapper = styled.div`
     padding: 10px;
     border: 1px solid #bbb;
     border-radius: 10px;
+    background-color: white;
     box-shadow: 2px 2px rgba(100, 100, 100, 0.5);
     cursor: default;
     display: none;
+    z-index: 1;
   }
 `;
 
