@@ -6,33 +6,25 @@ const defaultState = fromJS({
 });
 
 const addItemToWishList = (state, action) => {
-  let foundIndex = state
-    .toJS()
-    .itemsInWishList.findIndex((i) => i.id === action.item.id);
   let foundItem = state
     .toJS()
     .itemsInWishList.find((obj) => obj.id === action.item.id);
 
   if (foundItem === undefined) {
-    return state.set("itemsInWishList", [
-      ...state.toJS().itemsInWishList,
-      action.item,
-    ]);
-  } else {
-    return state.merge({
-      itemsInWishList: fromJS([
-        ...state.toJS().itemsInWishList.slice(0, foundIndex),
-        ...state.toJS().itemsInWishList.slice(foundIndex + 1),
-      ]),
-    });
+    action.item.inWishList = true;
+    return state.set(
+      "itemsInWishList",
+      fromJS([...state.toJS().itemsInWishList, action.item])
+    );
   }
+
+  return state;
 };
 
 const removeFromWishLish = (state, action) => {
   let foundIndex = state
     .toJS()
     .itemsInWishList.findIndex((i) => i.id === action.item.id);
-  console.log(foundIndex);
 
   return state.merge({
     itemsInWishList: fromJS([

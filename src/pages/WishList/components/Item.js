@@ -19,48 +19,55 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 
 function Item(props) {
-  const { title, price, category, image } = props.item;
+  const { wishList, removeFromWishLish, addItemToCart } = props;
 
-  const { removeFromWishLish, addItemToCart } = props;
+  const foundItem = wishList.find((obj) => obj === props.item);
 
-  return (
-    <ItemWrapper>
-      <UpWrapper>
-        <Img src={image} alt="" />
-        <UpRightWrapper>
-          <Category>{category}</Category>
-          <Title>{title}</Title>
-        </UpRightWrapper>
-      </UpWrapper>
-      <LowerWrapper>
-        <Price> ${price}</Price>
-        <div className="__Home__AddToWishListWrapper">
-          <FavoriteBorderIcon
-            className="__Home__AddToWishList"
-            style={{ color: "red" }}
-            onClick={() => {
-              removeFromWishLish(props.item);
-            }}
-          />
-          <p className="__Home__ToolTip">Remove from Wish List</p>
-        </div>
-        <AddShoppingCartIcon
-          className="
+  if (foundItem !== undefined) {
+    const { title, price, category, image } = foundItem.toJS();
+
+    return (
+      <ItemWrapper>
+        <UpWrapper>
+          <Img src={image} alt="" />
+          <UpRightWrapper>
+            <Category>{category}</Category>
+            <Title>{title}</Title>
+          </UpRightWrapper>
+        </UpWrapper>
+        <LowerWrapper>
+          <Price> ${price}</Price>
+          <div className="__Home__AddToWishListWrapper">
+            <FavoriteBorderIcon
+              className="__Home__AddToWishList"
+              style={{ color: "red" }}
+              onClick={() => {
+                removeFromWishLish(props.item);
+              }}
+            />
+            <p className="__Home__ToolTip">Remove from Wish List</p>
+          </div>
+          <AddShoppingCartIcon
+            className="
         __Home__AddToCart"
-          onClick={() => addItemToCart(props.item)}
-        />
-      </LowerWrapper>
-    </ItemWrapper>
-  );
+            onClick={() => addItemToCart(props.item)}
+          />
+        </LowerWrapper>
+      </ItemWrapper>
+    );
+  } else {
+    return <></>;
+  }
 }
+
+const mapState = (state) => ({
+  wishList: state.getIn(["wishList", "itemsInWishList"]),
+});
 
 const mapDispatch = (dispatch) => ({
   removeFromWishLish(item) {
     dispatch(actionCreators.removeFromWishLish(item));
   },
-  addItemToCart(item) {
-    dispatch(cartActionCreators.addItemToCart(item));
-  },
 });
 
-export default connect(null, mapDispatch)(Item);
+export default connect(mapState, mapDispatch)(Item);
