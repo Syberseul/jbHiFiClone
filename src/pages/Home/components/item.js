@@ -19,9 +19,12 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 
 function Item(props) {
-  const { title, price, image, category, inWishList } = props.item;
+  const { title, price, image, category } = props.item;
 
-  const { addItemToCart, addItemToWishList, removeItemFromWishList } = props;
+  const { wishList, addItemToCart, addItemToWishList, removeItemFromWishList } =
+    props;
+
+  const foundItem = wishList.toJS().find((obj) => obj.title === title);
 
   return (
     <ItemWrapper>
@@ -37,16 +40,16 @@ function Item(props) {
         <div className="__Home__AddToWishListWrapper">
           <FavoriteBorderIcon
             className="__Home__AddToWishList"
-            style={{ color: inWishList ? "red" : "black" }}
+            style={{ color: foundItem ? "red" : "black" }}
             onClick={() => {
               {
-                inWishList
+                foundItem
                   ? removeItemFromWishList(props.item)
-                  : addItemToWishList(props.item);
+                  : addItemToWishList(props.item, foundItem);
               }
             }}
           />
-          {inWishList ? (
+          {foundItem ? (
             <p className="__Home__ToolTip">Remove from Wish List</p>
           ) : (
             <p className="__Home__ToolTip">Add to Wish List</p>
@@ -62,16 +65,22 @@ function Item(props) {
   );
 }
 
+const mapState = (state) => ({
+  wishList: state.getIn(["wishList", "itemsInWishList"]),
+});
+
 const mapDispatch = (dispatch) => ({
   addItemToCart(item) {
     dispatch(actionCreators.addItemToCart(item));
   },
-  addItemToWishList(item) {
+
+  addItemToWishList(item, foundItem) {
     dispatch(wishListActionCreators.addItemToWishList(item));
   },
+
   removeItemFromWishList(item) {
     dispatch(wishListActionCreators.removeFromWishLish(item));
   },
 });
 
-export default connect(null, mapDispatch)(Item);
+export default connect(mapState, mapDispatch)(Item);

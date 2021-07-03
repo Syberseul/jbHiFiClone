@@ -11,7 +11,6 @@ const addItemToWishList = (state, action) => {
     .itemsInWishList.find((obj) => obj.id === action.item.id);
 
   if (foundItem === undefined) {
-    action.item.inWishList = true;
     return state.set(
       "itemsInWishList",
       fromJS([...state.toJS().itemsInWishList, action.item])
