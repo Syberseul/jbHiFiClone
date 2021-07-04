@@ -1,5 +1,6 @@
 import * as actionTypes from "./actionTypes";
 import { actionTypes as actionTypesFromHome } from "../../Home/store";
+import { actionTypes as actionTypesFromWishlist } from "../../WishList/store";
 import { fromJS } from "immutable";
 
 const defaultState = fromJS({
@@ -93,6 +94,7 @@ export default (state = defaultState, action) => {
   switch (action.type) {
     case actionTypes.INCREAMENT_ITEM:
     case actionTypesFromHome.ADD_ITEM_TO_CART:
+    case actionTypesFromWishlist.ADD_TO_CART:
       return addItemToCart(state, action);
 
     case actionTypes.DECREAMENET_ITEM:

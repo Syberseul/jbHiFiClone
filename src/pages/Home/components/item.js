@@ -45,7 +45,7 @@ function Item(props) {
               {
                 foundItem
                   ? removeItemFromWishList(props.item)
-                  : addItemToWishList(props.item, foundItem);
+                  : addItemToWishList(props.item);
               }
             }}
           />
@@ -74,7 +74,7 @@ const mapDispatch = (dispatch) => ({
     dispatch(actionCreators.addItemToCart(item));
   },
 
-  addItemToWishList(item, foundItem) {
+  addItemToWishList(item) {
     dispatch(wishListActionCreators.addItemToWishList(item));
   },
 

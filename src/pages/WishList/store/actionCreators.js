@@ -10,3 +10,8 @@ export const removeFromWishLish = (item) => ({
   type: actionTypes.REMOVE_FROM_WISHLIST,
   item,
 });
+
+export const addToCart = (item) => ({
+  type: actionTypes.ADD_TO_CART,
+  item,
+});

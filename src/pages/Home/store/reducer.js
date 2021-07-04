@@ -12,11 +12,6 @@ const updateHomeData = (state, action) => {
   return state.set("items", action.data);
 };
 
-const addItemToWishLista = (state, action) => {
-  let foundIndex = state.toJS().items.findIndex((i) => i.id === action.item.id);
-  return state.setIn(["items", `${foundIndex}`, "inWishList"], true);
-};
-
 export default (state = defaultState, action) => {
   switch (action.type) {
     case actionTypes.UPDATE_HOME_DATA:
