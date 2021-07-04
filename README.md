@@ -17,7 +17,7 @@
   ### Setup:
   - in your vsCode terminal: `git clone https://github.com/Syberseul/jbHiFiClone.git`
   - install NPM package: `npm install`
-  - install request dependencies: 
+  - install essential dependencies: 
     - `npm install` or
     - `yarn add `
 
