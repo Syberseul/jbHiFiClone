@@ -1,15 +1,15 @@
-# jbHIFI Clone (Official page: https://www.jbhifi.com.au/)
+# JB Hi-Fi Clone (Official page: https://www.jbhifi.com.au/)
 
 - ### About the Project:
   A clone version of an official website with React-Redux.
 
 - ### Feature:
-  - responsive SPA can support both pc and smart phone
-  - redux-immutable to protect data type
-  - axios to fetch API
+  - Responsive SPA can support both pc and smart phone
+  - Redux-immutable to protect data type
+  - Axios to fetch API
   - SPA: react-router to switch between pages without refreshing
-  - use Oauth to sign in via google account, facebook account, github account and default email
-  - use Firebase as the server to hold user's account
+  - Use Oauth to sign in via google account, facebook account, github account and default email
+  - Use Firebase as the server to hold user's account
 
 - ### Get Started:
   ### Prerequisite:
