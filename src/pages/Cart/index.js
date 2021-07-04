@@ -32,8 +32,4 @@ const mapState = (state) => ({
   totalAmount: state.getIn(["cart", "totalAmount"]),
 });
 
-const mapDispatch = (dispatch) => ({
-  // ...
-});
-
-export default connect(mapState, mapDispatch)(Cart);
+export default connect(mapState, null)(Cart);

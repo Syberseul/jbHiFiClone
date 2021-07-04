@@ -7,13 +7,15 @@ import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
 import { actionCreators } from "./store";
 
+import { WrapperWithContent, LogInContainer } from "./style";
+
 firebase.initializeApp({
-  apiKey: "AIzaSyCUc-OfM2IsXZdyuti_MtMWtjsssi1od7w",
-  authDomain: "amz-clone-yt-c021e.firebaseapp.com",
-  projectId: "amz-clone-yt-c021e",
-  storageBucket: "amz-clone-yt-c021e.appspot.com",
-  messagingSenderId: "401562672618",
-  appId: "1:401562672618:web:ea6987b1fc50ce20422693",
+  apiKey: process.env.REACT_APP_GOOGLE_API_KEY,
+  authDomain: process.env.REACT_APP_GOOGLE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_GOOGLE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_GOOGLE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_GOOGLE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_GOOGLE_APP_ID,
 });
 
 function LogIn(props) {
@@ -47,8 +49,8 @@ function LogIn(props) {
   return (
     <div>
       {isSignedIn ? (
-        <div>
-          <p>Signed In</p>
+        <WrapperWithContent>
+          <p>Hello: {user.displayName} !</p>
           <button
             onClick={() => {
               firebase.auth().signOut();
@@ -57,14 +59,14 @@ function LogIn(props) {
           >
             Sign out
           </button>
-        </div>
+        </WrapperWithContent>
       ) : (
-        <div>
+        <LogInContainer>
           <StyledFirebaseAuth
             uiConfig={uiConfig}
             firebaseAuth={firebase.auth()}
           />
-        </div>
+        </LogInContainer>
       )}
     </div>
   );

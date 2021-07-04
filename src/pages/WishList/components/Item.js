@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 import { actionCreators } from "../store";
 import { actionCreators as homeActionCreators } from "../../Home/store";
 
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+
 import {
   ItemWrapper,
   UpWrapper,
@@ -14,9 +17,6 @@ import {
   LowerWrapper,
   Price,
 } from "../../Home/components/style";
-
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
-import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 
 function Item(props) {
   const { title, price, category, image } = props.item.toJS();

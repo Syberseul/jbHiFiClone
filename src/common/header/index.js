@@ -39,7 +39,14 @@ import MenuIcon from "@material-ui/icons/Menu";
 import logo from "../../static/img/logo.jpg";
 
 function Header(props) {
-  const { menuOpen, totalAmount, toggleMenuClose, toggleMenuOpen } = props;
+  const {
+    menuOpen,
+    totalAmountInCart,
+    toggleMenuClose,
+    toggleMenuOpen,
+    loggedIn,
+    userName,
+  } = props;
 
   return (
     <>
@@ -68,8 +75,8 @@ function Header(props) {
             </MobileWrapper>
             <MobileWrapper>
               <ShoppingCartIcon />
-              {totalAmount > 0 ? (
-                <p className="__Header__Quantity">{totalAmount}</p>
+              {totalAmountInCart > 0 ? (
+                <p className="__Header__Quantity">{totalAmountInCart}</p>
               ) : (
                 <></>
               )}
@@ -87,7 +94,10 @@ function Header(props) {
             <NavSearch />
           </NavSearchWrapper>
           <IconsWrapper>
-            <Link to="/wishList" className="__Header__Link">
+            <Link
+              to={loggedIn ? "/wishList" : "/login"}
+              className="__Header__Link"
+            >
               <SubIconWrapper>
                 <FavoriteBorderIcon />
                 <SubIconText>Wish List</SubIconText>
@@ -96,14 +106,15 @@ function Header(props) {
             <Link to="/login" className="__Header__Link">
               <SubIconWrapper>
                 <AccountCircleIcon />
+                {loggedIn ? <p>{userName}</p> : <></>}
                 <SubIconText>My Account</SubIconText>
               </SubIconWrapper>
             </Link>
             <Link to="/myCart" className="__Header__Link">
               <SubIconWrapper>
                 <ShoppingCartIcon />
-                {totalAmount > 0 ? (
-                  <p className="__Header__Quantity">{totalAmount}</p>
+                {totalAmountInCart > 0 ? (
+                  <p className="__Header__Quantity">{totalAmountInCart}</p>
                 ) : (
                   <></>
                 )}
@@ -145,7 +156,9 @@ function Header(props) {
 const mapState = (state) => ({
   menuOpen: state.getIn(["header", "menuOpen"]),
   itemsInCart: state.getIn(["cart", "itemsInCart"]),
-  totalAmount: state.getIn(["cart", "totalAmount"]),
+  totalAmountInCart: state.getIn(["cart", "totalAmount"]),
+  loggedIn: state.getIn(["account", "userLoggedIn"]),
+  userName: state.getIn(["account", "userName"]),
 });
 
 const mapDispatch = (dispatch) => ({
