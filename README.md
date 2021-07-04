@@ -26,15 +26,18 @@
 
 https://user-images.githubusercontent.com/32564367/124377291-99776d00-dcee-11eb-9fd0-57a1e39ff535.MP4
 
+
 - Add item to cart:
 
 
 https://user-images.githubusercontent.com/32564367/124377520-a779bd80-dcef-11eb-8e7c-ed9015f0b77e.MP4
 
+
 - Log In:
 
 
 https://user-images.githubusercontent.com/32564367/124377540-b9f3f700-dcef-11eb-973a-06f83f26aa0d.MP4
+
 
 - Add item to wish list (Log in required):
 
@@ -43,3 +46,5 @@ https://user-images.githubusercontent.com/32564367/124377562-ced08a80-dcef-11eb-
 
 
 
+Contact Email: 
+yteng.huang@gmail.com
