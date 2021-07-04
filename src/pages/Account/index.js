@@ -9,6 +9,8 @@ import { actionCreators } from "./store";
 
 import { WrapperWithContent, LogInContainer } from "./style";
 
+import SideMenu from "../../common/sideMenu/sideMenu";
+
 firebase.initializeApp({
   apiKey: process.env.REACT_APP_GOOGLE_API_KEY,
   authDomain: process.env.REACT_APP_GOOGLE_AUTH_DOMAIN,
@@ -34,7 +36,7 @@ function LogIn(props) {
     },
   };
 
-  const { userLogin, userLogOut } = props;
+  const { userLogin, userLogOut, menuOpen } = props;
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
@@ -46,31 +48,39 @@ function LogIn(props) {
 
   if (user) userLogin(user);
 
-  return (
-    <div>
-      {isSignedIn ? (
-        <WrapperWithContent>
-          <p>Hello: {user.displayName} !</p>
-          <button
-            onClick={() => {
-              firebase.auth().signOut();
-              userLogOut();
-            }}
-          >
-            Sign out
-          </button>
-        </WrapperWithContent>
-      ) : (
-        <LogInContainer>
-          <StyledFirebaseAuth
-            uiConfig={uiConfig}
-            firebaseAuth={firebase.auth()}
-          />
-        </LogInContainer>
-      )}
-    </div>
-  );
+  if (menuOpen === false) {
+    return (
+      <div>
+        {isSignedIn ? (
+          <WrapperWithContent>
+            <p>Hello: {user.displayName} !</p>
+            <button
+              onClick={() => {
+                firebase.auth().signOut();
+                userLogOut();
+              }}
+            >
+              Sign out
+            </button>
+          </WrapperWithContent>
+        ) : (
+          <LogInContainer>
+            <StyledFirebaseAuth
+              uiConfig={uiConfig}
+              firebaseAuth={firebase.auth()}
+            />
+          </LogInContainer>
+        )}
+      </div>
+    );
+  } else {
+    return <SideMenu />;
+  }
 }
+
+const mapState = (state) => ({
+  menuOpen: state.getIn(["header", "menuOpen"]),
+});
 
 const mapDispatch = (dispatch) => ({
   userLogin(user) {
@@ -82,4 +92,4 @@ const mapDispatch = (dispatch) => ({
   },
 });
 
-export default connect(null, mapDispatch)(LogIn);
+export default connect(mapState, mapDispatch)(LogIn);

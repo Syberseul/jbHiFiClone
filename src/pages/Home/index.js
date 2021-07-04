@@ -5,6 +5,7 @@ import { actionCreators } from "./store";
 import Item from "./components/item";
 import Banner from "./components/banner";
 import SubBanner from "./components/subBanner";
+import SideMenu from "../../common/sideMenu/sideMenu";
 
 import { RecommendWrapper, RecommendTitle, ItemContainer } from "./style";
 
@@ -31,7 +32,7 @@ function Home(props) {
       </div>
     );
   } else {
-    return <div>This will show when menu is open</div>;
+    return <SideMenu />;
   }
 }
 

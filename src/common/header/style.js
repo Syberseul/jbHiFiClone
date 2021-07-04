@@ -22,6 +22,10 @@ export const HeaderWrapper = styled.div`
       display: none;
     }
   }
+  .__Header__Link {
+    text-decoration: none;
+    color: #000;
+  }
 `;
 
 export const StoreFinder = styled.p`

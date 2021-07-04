@@ -35,6 +35,7 @@ import NotificationsNoneIcon from "@material-ui/icons/NotificationsNone";
 import BuildIcon from "@material-ui/icons/Build";
 import CardGiftcardIcon from "@material-ui/icons/CardGiftcard";
 import MenuIcon from "@material-ui/icons/Menu";
+import CloseIcon from "@material-ui/icons/Close";
 
 import logo from "../../static/img/logo.jpg";
 
@@ -54,9 +55,9 @@ function Header(props) {
         <HeaderWrapperLine1>
           <MobileWrapper
             className="__Header__MenuIcon"
-            onClick={menuOpen === true ? toggleMenuClose : toggleMenuOpen}
+            onClick={menuOpen ? toggleMenuClose : toggleMenuOpen}
           >
-            <MenuIcon />
+            {menuOpen ? <CloseIcon /> : <MenuIcon />}
             <MobileText>Menu</MobileText>
           </MobileWrapper>
           <HeaderWrapper>
@@ -69,19 +70,24 @@ function Header(props) {
           <HeaderWrapper>
             <HelpOutlineIcon className="__Header__Icon" />
             <StoreFinder>Help & Support</StoreFinder>
-            <MobileWrapper>
-              <AccountCircleIcon />
-              <MobileText>Account</MobileText>
-            </MobileWrapper>
-            <MobileWrapper>
-              <ShoppingCartIcon />
-              {totalAmountInCart > 0 ? (
-                <p className="__Header__Quantity">{totalAmountInCart}</p>
-              ) : (
-                <></>
-              )}
-              <MobileText>Cart</MobileText>
-            </MobileWrapper>
+            <Link to="/login" className="__Header__Link">
+              <MobileWrapper>
+                <AccountCircleIcon />
+                {loggedIn ? <p>{userName}</p> : <></>}
+                <MobileText>Account</MobileText>
+              </MobileWrapper>
+            </Link>
+            <Link to="/myCart" className="__Header__Link">
+              <MobileWrapper>
+                <ShoppingCartIcon />
+                {totalAmountInCart > 0 ? (
+                  <p className="__Header__Quantity">{totalAmountInCart}</p>
+                ) : (
+                  <></>
+                )}
+                <MobileText>Cart</MobileText>
+              </MobileWrapper>
+            </Link>
           </HeaderWrapper>
         </HeaderWrapperLine1>
 
