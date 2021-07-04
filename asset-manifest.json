@@ -1,18 +1,21 @@
 {
   "files": {
-    "main.js": "/jbHiFiClone/static/js/main.45914040.chunk.js",
-    "main.js.map": "/jbHiFiClone/static/js/main.45914040.chunk.js.map",
+    "main.js": "/jbHiFiClone/static/js/main.bb8893ae.chunk.js",
+    "main.js.map": "/jbHiFiClone/static/js/main.bb8893ae.chunk.js.map",
     "runtime-main.js": "/jbHiFiClone/static/js/runtime-main.3d41221d.js",
     "runtime-main.js.map": "/jbHiFiClone/static/js/runtime-main.3d41221d.js.map",
-    "static/js/2.9e8a8403.chunk.js": "/jbHiFiClone/static/js/2.9e8a8403.chunk.js",
-    "static/js/2.9e8a8403.chunk.js.map": "/jbHiFiClone/static/js/2.9e8a8403.chunk.js.map",
+    "static/css/2.6b560088.chunk.css": "/jbHiFiClone/static/css/2.6b560088.chunk.css",
+    "static/js/2.f9f92710.chunk.js": "/jbHiFiClone/static/js/2.f9f92710.chunk.js",
+    "static/js/2.f9f92710.chunk.js.map": "/jbHiFiClone/static/js/2.f9f92710.chunk.js.map",
     "index.html": "/jbHiFiClone/index.html",
-    "static/js/2.9e8a8403.chunk.js.LICENSE.txt": "/jbHiFiClone/static/js/2.9e8a8403.chunk.js.LICENSE.txt",
+    "static/css/2.6b560088.chunk.css.map": "/jbHiFiClone/static/css/2.6b560088.chunk.css.map",
+    "static/js/2.f9f92710.chunk.js.LICENSE.txt": "/jbHiFiClone/static/js/2.f9f92710.chunk.js.LICENSE.txt",
     "static/media/logo.0df215cc.jpg": "/jbHiFiClone/static/media/logo.0df215cc.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.3d41221d.js",
-    "static/js/2.9e8a8403.chunk.js",
-    "static/js/main.45914040.chunk.js"
+    "static/css/2.6b560088.chunk.css",
+    "static/js/2.f9f92710.chunk.js",
+    "static/js/main.bb8893ae.chunk.js"
   ]
 }
