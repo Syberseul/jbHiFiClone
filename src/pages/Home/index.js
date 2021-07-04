@@ -9,31 +9,27 @@ import SideMenu from "../../common/sideMenu/sideMenu";
 
 import { RecommendWrapper, RecommendTitle, ItemContainer } from "./style";
 
-function Home(props) {
-  const { menuOpen, items } = props;
-
+function Home({ menuOpen, items, fetchHomeData }) {
   useEffect(() => {
-    props.fetchHomeData();
+    fetchHomeData();
   }, []);
 
-  if (menuOpen === false) {
-    return (
-      <div>
-        <Banner />
-        <SubBanner />
-        <RecommendWrapper>
-          <RecommendTitle>Recommended for you</RecommendTitle>
-          <ItemContainer>
-            {items.map((item, index) => (
-              <Item key={index} item={item} />
-            ))}
-          </ItemContainer>
-        </RecommendWrapper>
-      </div>
-    );
-  } else {
-    return <SideMenu />;
-  }
+  return !menuOpen ? (
+    <div>
+      <Banner />
+      <SubBanner />
+      <RecommendWrapper>
+        <RecommendTitle>Recommended for you</RecommendTitle>
+        <ItemContainer>
+          {items.map((item, index) => (
+            <Item key={index} item={item} />
+          ))}
+        </ItemContainer>
+      </RecommendWrapper>
+    </div>
+  ) : (
+    <SideMenu />
+  );
 }
 
 const mapState = (state) => ({

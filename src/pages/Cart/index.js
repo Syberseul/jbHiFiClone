@@ -9,28 +9,24 @@ import SideMenu from "../../common/sideMenu/sideMenu";
 
 import { WrapperWithContent } from "./style";
 
-function Cart(props) {
-  const { items, totalAmount, menuOpen } = props;
-
-  if (menuOpen === false) {
-    return (
-      <WrapperWithContent>
-        {totalAmount > 0 ? (
-          <div>
-            <Summary />
-            {items.map((item, index) => {
-              return <Item key={index} item={item} />;
-            })}
-            <SubTotal />
-          </div>
-        ) : (
-          <EmptyCart />
-        )}
-      </WrapperWithContent>
-    );
-  } else {
-    return <SideMenu />;
-  }
+function Cart({ items, totalAmount, menuOpen }) {
+  return !menuOpen ? (
+    <WrapperWithContent>
+      {totalAmount > 0 ? (
+        <div>
+          <Summary />
+          {items.map((item, index) => {
+            return <Item key={index} item={item} />;
+          })}
+          <SubTotal />
+        </div>
+      ) : (
+        <EmptyCart />
+      )}
+    </WrapperWithContent>
+  ) : (
+    <SideMenu />
+  );
 }
 
 const mapState = (state) => ({

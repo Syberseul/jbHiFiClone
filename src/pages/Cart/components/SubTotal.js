@@ -11,9 +11,7 @@ import {
 
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 
-function SubTotal(props) {
-  const { totalAmount } = props;
-
+function SubTotal({ totalAmount }) {
   return (
     <SubTotalWrapper>
       <SubTotalFirstLineWrapper>
