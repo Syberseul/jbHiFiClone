@@ -12,8 +12,8 @@ import {
   QuantityControl,
 } from "../style";
 
-function Item(props) {
-  const { title, price, image, description, amount } = props.item.toJS();
+function Item({ item, deleteItem, decreamentItem, increamentItem }) {
+  const { title, price, image, description, amount } = item.toJS();
 
   return amount > 0 ? (
     <CartItemWrapper>
@@ -25,21 +25,21 @@ function Item(props) {
       <LeftSection>
         <p
           className="__Item__RemoveButton"
-          onClick={() => props.deleteItem(props.item.toJS())}
+          onClick={() => deleteItem(item.toJS())}
         >
           Remove
         </p>
         <QuantityControl>
           <p
             className="__Item__Button"
-            onClick={() => props.decreamentItem(props.item.toJS())}
+            onClick={() => decreamentItem(item.toJS())}
           >
             -
           </p>
           <p className="__Item__Amount">{amount}</p>
           <p
             className="__Item__Button"
-            onClick={() => props.increamentItem(props.item.toJS())}
+            onClick={() => increamentItem(item.toJS())}
           >
             +
           </p>

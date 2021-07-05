@@ -18,10 +18,8 @@ import {
   Price,
 } from "../../Home/components/style";
 
-function Item(props) {
-  const { title, price, category, image } = props.item.toJS();
-
-  const { removeFromWishLish, addItemToCart } = props;
+function Item({ item, removeFromWishLish, addItemToCart }) {
+  const { title, price, category, image } = item.toJS();
 
   return (
     <ItemWrapper>
@@ -39,7 +37,7 @@ function Item(props) {
             className="__Home__AddToWishList"
             style={{ color: "red" }}
             onClick={() => {
-              removeFromWishLish(props.item.toJS());
+              removeFromWishLish(item.toJS());
             }}
           />
           <p className="__Home__ToolTip">Remove from Wish List</p>
@@ -48,7 +46,7 @@ function Item(props) {
           className="
         __Home__AddToCart"
           onClick={() => {
-            addItemToCart(props.item);
+            addItemToCart(item);
           }}
         />
       </LowerWrapper>

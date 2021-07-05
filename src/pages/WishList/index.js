@@ -6,9 +6,7 @@ import Item from "./components/Item";
 
 import { RecommendWrapper, ItemContainer } from "./style";
 
-function WishList(props) {
-  const { wishList } = props;
-
+function WishList({ wishList }) {
   const wishListLength = wishList.toJS().length;
 
   return (
