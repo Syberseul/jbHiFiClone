@@ -20,7 +20,7 @@ firebase.initializeApp({
   appId: process.env.REACT_APP_GOOGLE_APP_ID,
 });
 
-function LogIn(props) {
+function LogIn({ userLogin, userLogOut, menuOpen }) {
   const [isSignedIn, setSignedIn] = useState(false);
 
   const uiConfig = {
@@ -36,8 +36,6 @@ function LogIn(props) {
     },
   };
 
-  const { userLogin, userLogOut, menuOpen } = props;
-
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
       setSignedIn(!!user);
@@ -48,34 +46,32 @@ function LogIn(props) {
 
   if (user) userLogin(user);
 
-  if (menuOpen === false) {
-    return (
-      <div>
-        {isSignedIn ? (
-          <WrapperWithContent>
-            <p>Hello: {user.displayName} !</p>
-            <button
-              onClick={() => {
-                firebase.auth().signOut();
-                userLogOut();
-              }}
-            >
-              Sign out
-            </button>
-          </WrapperWithContent>
-        ) : (
-          <LogInContainer>
-            <StyledFirebaseAuth
-              uiConfig={uiConfig}
-              firebaseAuth={firebase.auth()}
-            />
-          </LogInContainer>
-        )}
-      </div>
-    );
-  } else {
-    return <SideMenu />;
-  }
+  return !menuOpen ? (
+    <div>
+      {isSignedIn ? (
+        <WrapperWithContent>
+          <p>Hello: {user.displayName} !</p>
+          <button
+            onClick={() => {
+              firebase.auth().signOut();
+              userLogOut();
+            }}
+          >
+            Sign out
+          </button>
+        </WrapperWithContent>
+      ) : (
+        <LogInContainer>
+          <StyledFirebaseAuth
+            uiConfig={uiConfig}
+            firebaseAuth={firebase.auth()}
+          />
+        </LogInContainer>
+      )}
+    </div>
+  ) : (
+    <SideMenu />
+  );
 }
 
 const mapState = (state) => ({

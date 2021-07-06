@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from "react";
+
 import {
   SideBarWrapper,
   UpperWrapper,
@@ -23,6 +25,19 @@ import CardGiftcardIcon from "@material-ui/icons/CardGiftcard";
 
 function SideMenu(props) {
   const { menuOpen, loggedIn, toggleMenuOpen, toggleMenuClose } = props;
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth);
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  if (windowWidth > 850) toggleMenuClose();
 
   return (
     <SideBarWrapper>

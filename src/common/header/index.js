@@ -64,20 +64,28 @@ function Header(props) {
             <LocationOnIcon className="__Header__Icon" />
             <StoreFinder>Store Finder</StoreFinder>
           </HeaderWrapper>
-          <Link to="/">
+          <Link to="/" onClick={menuOpen ? toggleMenuClose : () => {}}>
             <PhoneImg src={logo} alt="" />
           </Link>
           <HeaderWrapper>
             <HelpOutlineIcon className="__Header__Icon" />
             <StoreFinder>Help & Support</StoreFinder>
-            <Link to="/login" className="__Header__Link">
+            <Link
+              to="/login"
+              className="__Header__Link"
+              onClick={menuOpen ? toggleMenuClose : () => {}}
+            >
               <MobileWrapper>
                 <AccountCircleIcon />
                 {loggedIn ? <p>{userName}</p> : <></>}
                 <MobileText>Account</MobileText>
               </MobileWrapper>
             </Link>
-            <Link to="/myCart" className="__Header__Link">
+            <Link
+              to="/myCart"
+              className="__Header__Link"
+              onClick={menuOpen ? toggleMenuClose : () => {}}
+            >
               <MobileWrapper>
                 <ShoppingCartIcon />
                 {totalAmountInCart > 0 ? (
