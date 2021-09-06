@@ -1,4 +1,4 @@
-# Refactoring......
+# Refactored, please redirect to the latest version: https://github.com/Syberseul/JBHiFiClone_V2
 
 # JB Hi-Fi Clone (Official page: https://www.jbhifi.com.au/)
 
