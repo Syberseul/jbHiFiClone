@@ -79,7 +79,7 @@ const mapDispatch = (dispatch) => ({
   },
 
   removeItemFromWishList(item) {
-    dispatch(wishListActionCreators.removeFromWishLish(item));
+    dispatch(wishListActionCreators.removeFromWishList(item));
   },
 });
 

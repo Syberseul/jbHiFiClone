@@ -53,20 +53,18 @@ function Header(props) {
     <>
       <nav style={{ backgroundColor: "#ffec0f" }}>
         <HeaderWrapperLine1>
-          <MobileWrapper
-            className="__Header__MenuIcon"
-            onClick={menuOpen ? toggleMenuClose : toggleMenuOpen}
-          >
+          <MobileWrapper onClick={menuOpen ? toggleMenuClose : toggleMenuOpen}>
             {menuOpen ? <CloseIcon /> : <MenuIcon />}
             <MobileText>Menu</MobileText>
           </MobileWrapper>
           <HeaderWrapper>
             <LocationOnIcon className="__Header__Icon" />
             <StoreFinder>Store Finder</StoreFinder>
+            <Link to="/" onClick={menuOpen ? toggleMenuClose : () => {}}>
+              <PhoneImg src={logo} alt="" />
+            </Link>
           </HeaderWrapper>
-          <Link to="/" onClick={menuOpen ? toggleMenuClose : () => {}}>
-            <PhoneImg src={logo} alt="" />
-          </Link>
+
           <HeaderWrapper>
             <HelpOutlineIcon className="__Header__Icon" />
             <StoreFinder>Help & Support</StoreFinder>

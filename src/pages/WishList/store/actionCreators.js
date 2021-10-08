@@ -6,7 +6,7 @@ export const addItemToWishList = (item, inWishList) => ({
   inWishList,
 });
 
-export const removeFromWishLish = (item) => ({
+export const removeFromWishList = (item) => ({
   type: actionTypes.REMOVE_FROM_WISHLIST,
   item,
 });

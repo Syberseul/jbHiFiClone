@@ -57,7 +57,7 @@ function LogIn({ userLogin, userLogOut, menuOpen }) {
               userLogOut();
             }}
           >
-            Sign out
+            Sign Out
           </button>
         </WrapperWithContent>
       ) : (
